@@ -26,12 +26,16 @@ concurrency:
 
 jobs:
   checkout-javascript:
-    uses: 'actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b' # ratchet:actions/checkout@v4
-    with:
-      repository: 'ian-shafer/playground'
-      sparse-checkout: |
-        .github/workflow/multi-approvers.js
-      sparse-checkout-cone-mode: false
+    steps:
+      - uses: 'actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b' # ratchet:actions/checkout@v4
+        with:
+          repository: 'ian-shafer/playground'
+          sparse-checkout: |
+            .github/workflows/multi-approvers.js
+          sparse-checkout-cone-mode: false
+
+jobs:
+  needs: 'checkout-javascript'
   multi-approvers:
     uses: 'ian-shafer/playground/.github/workflows/multi-approvers.yml@main'
     with:
