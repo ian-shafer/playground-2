@@ -34,9 +34,8 @@ jobs:
             .github/workflows/multi-approvers.js
           sparse-checkout-cone-mode: false
 
-jobs:
-  needs: 'checkout-javascript'
   multi-approvers:
+    needs: 'checkout-javascript'
     uses: 'ian-shafer/playground/.github/workflows/multi-approvers.yml@main'
     with:
       org-members-path: './members.json'
