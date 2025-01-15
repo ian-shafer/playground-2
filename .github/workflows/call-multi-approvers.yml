@@ -37,9 +37,17 @@ jobs:
             .github/workflows/multi-approvers.js
           sparse-checkout-cone-mode: false
 
-      - name: 'Check checkout'
+      - name: 'Check checkout - same job'
         run: |
           readlink -f abcxyz/pkg/.github/workflows
+
+  check-checkout:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Check checkout - separate job'
+        run: |
+          readlink -f abcxyz/pkg/.github/workflows
+
 
   multi-approvers:
     needs: 'checkout-javascript'
