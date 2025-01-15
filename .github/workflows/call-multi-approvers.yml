@@ -42,6 +42,7 @@ jobs:
           readlink -f abcxyz/pkg/.github/workflows
 
   check-checkout:
+    needs: 'checkout-javascript'
     runs-on: 'ubuntu-latest'
     steps:
       - name: 'Check checkout - separate job'
