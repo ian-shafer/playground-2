@@ -25,31 +25,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  checkout-javascript:
-    runs-on: 'ubuntu-latest'
-    steps:
-      - name: 'Checkout multi-approver.js'
-        uses: 'actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b' # ratchet:actions/checkout@v4
-        with:
-          path: 'abcxyz/pkg'
-          repository: 'ian-shafer/playground'
-          sparse-checkout: |
-            .github/workflows/multi-approvers.js
-          sparse-checkout-cone-mode: false
-
-      - name: 'Check checkout - same job'
-        run: |
-          readlink -f abcxyz/pkg/.github/workflows
-
-  check-checkout:
-    needs: 'checkout-javascript'
-    runs-on: 'ubuntu-latest'
-    steps:
-      - name: 'Check checkout - separate job'
-        run: |
-          readlink -f abcxyz/pkg/.github/workflows
-
-
   multi-approvers:
     needs: 'checkout-javascript'
     uses: 'ian-shafer/playground/.github/workflows/multi-approvers.yml@main'
