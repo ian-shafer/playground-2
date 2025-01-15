@@ -39,7 +39,7 @@ jobs:
 
       - name: 'Check checkout'
         run: |
-          ls abcxyz/pkg/.github/workflows
+          ls -l abcxyz/pkg/.github/workflows
 
   multi-approvers:
     needs: 'checkout-javascript'
