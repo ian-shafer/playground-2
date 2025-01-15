@@ -37,7 +37,7 @@ jobs:
             .github/workflows/multi-approvers.js
           sparse-checkout-cone-mode: false
 
-      - name: check-checkout:
+      - name: 'Check checkout'
         run: |
           ls abcxyz/pkg/.github/workflows
 
