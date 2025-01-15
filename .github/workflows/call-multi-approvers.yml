@@ -28,4 +28,4 @@ jobs:
   multi-approvers:
     uses: 'ian-shafer/playground/.github/workflows/multi-approvers.yml@main'
     with:
-      org-members-path: '$GITHUB_WORKSPACE/.github/workflows/members.json'
+      org-members-path: '${{ github.workspace }}/.github/workflows/members.json'
