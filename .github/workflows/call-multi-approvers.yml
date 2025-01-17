@@ -26,6 +26,6 @@ concurrency:
 
 jobs:
   multi-approvers:
-    uses: 'ian-shafer/playground/.github/workflows/multi-approvers.yml@main'
+    uses: 'abcxyz/pkg/.github/workflows/multi-approvers.yml@main'
     with:
-      org-members-path: './members.json'
+      org-members-path: '.github/workflows/members.json'
