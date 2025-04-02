@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   multi-approvers:
-		if: |-
+    if: |-
       contains(fromJSON('["pull_request", "pull_request_review"]'), github.event_name)
     runs-on: 'ubuntu-latest'
     steps:
