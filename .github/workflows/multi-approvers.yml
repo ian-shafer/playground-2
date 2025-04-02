@@ -32,7 +32,7 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - name: 'Multi-approvers'
-        uses: 'ian-shafer/playground/.github/actions/multi-approvers'
+        uses: 'ian-shafer/playground@main/.github/actions/multi-approvers'
         with:
           team: 'the-a-team'
           token: '${{ secrets.MULTI_APPROVER_TOKEN }}'
