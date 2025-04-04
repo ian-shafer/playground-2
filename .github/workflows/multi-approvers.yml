@@ -1,4 +1,4 @@
-name: 'call-multi-approvers'
+name: 'multi-approvers'
 
 on:
   pull_request:
@@ -18,6 +18,7 @@ on:
 permissions:
   actions: 'write'
   contents: 'read'
+  id-token: 'write'
   pull-requests: 'read'
 
 concurrency:
@@ -26,6 +27,12 @@ concurrency:
 
 jobs:
   multi-approvers:
-    uses: 'ian-shafer/playground/.github/workflows/multi-approvers.yml@main'
-    with:
-      org-members-path: './members.json'
+    if: |-
+      contains(fromJSON('["pull_request", "pull_request_review"]'), github.event_name)
+    runs-on: 'self-hosted'
+    steps:
+      - name: 'Multi-approvers'
+        uses: 'ian-shafer/playground/.github/actions/multi-approvers@main'
+        with:
+          team: 'the-a-team'
+          token: '${{ secrets.MULTI_APPROVER_TOKEN }}'
